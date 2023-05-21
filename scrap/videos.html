@@ -1,0 +1,128 @@
+<?php
+session_start();
+require_once 'includes/dbh.inc.php';
+$query = "SELECT * FROM video";
+$result = mysqli_query($conn, $query);
+?>
+<!DOCTYPE html>
+<html>
+
+<head>
+     <title>Admin - Video Table</title>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+     <link rel="stylesheet" href="/webapp/css/style.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+     <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+     <script type="text/javascript"
+          src="https://cdn.datatables.net/r/dt/jq-2.1.4,jszip-2.5.0,pdfmake-0.1.18,dt-1.10.9,af-2.0.0,b-1.0.3,b-colvis-1.0.3,b-html5-1.0.3,b-print-1.0.3,se-1.0.1/datatables.min.js"></script>
+     <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/r/dt/jq-2.1.4,jszip-2.5.0,pdfmake-0.1.18,dt-1.10.9,af-2.0.0,b-1.0.3,b-colvis-1.0.3,b-html5-1.0.3,b-print-1.0.3,se-1.0.1/datatables.min.css" />
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+     <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/r/dt/jq-2.1.4,jszip-2.5.0,pdfmake-0.1.18,dt-1.10.9,af-2.0.0,b-1.0.3,b-colvis-1.0.3,b-html5-1.0.3,b-print-1.0.3,se-1.0.1/datatables.min.css" />
+     <script type="text/javascript"
+          src="https://cdn.datatables.net/r/dt/jq-2.1.4,jszip-2.5.0,pdfmake-0.1.18,dt-1.10.9,af-2.0.0,b-1.0.3,b-colvis-1.0.3,b-html5-1.0.3,b-print-1.0.3,se-1.0.1/datatables.min.js"></script>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+     <section class="top-nav-admin">
+          <div>
+               <!--<h2 class="h3-bold mx-2">Violation Detector AdminHub</h2>-->
+          </div>
+          </label>
+          <!-- <ul class="menu z-index">   
+            <a href="./UserPage.php">Dashboard</a>
+            <a href="./overspeeding.php">Overspeeding</a>
+            <a href="./illegallane.php">Lane Change</a>
+            <a href="./redlight.php">Red Light</a>
+            <a href="./report.php">Report</a>
+            <a href="./index.php">Logout</a>
+        </ul>-->
+          <ul class="nav nav-tabs nav-justified">
+               <li role="presentation" class=""><a href="adminpage.php">Dashboard</a></li>
+               <li role="presentation"><a href="registeredenforcers.php">Registered Enforcers</a></li>
+               <li role="presentation"><a href="usersinfo.php">User Info</a></li>
+               <li role="presentation"><a href="videos.php">Videos</a></li>
+               <li role="presentation"><a href="report.admin.php">Reports</a></li>
+               <li role="presentation"><a href="admin.table.php">Admin</a></li>
+               <li role="presentation"><a href="index.php">Logout</a></li>
+          </ul>
+     </section>
+     <br /><br />
+     <div class="container">
+          <h3 align="center">Video Table</h3>
+          <br />
+          <div class="table-responsive">
+               <table id="employee_data" class="table table-striped table-bordered">
+                    <thead>
+                         <tr>
+                              <th>ACTION</th>
+                              <th>VIDEO_ID</th>
+                              <th>LICENSE NUMBER</th>
+                              <th>VIOLATION</th>
+                              <th>URL</th>
+                              <th>DATE</th>
+                              <th>STATUS</th>
+                              <th>BADGE_ID</th>
+                         </tr>
+                    </thead>
+                    <?php
+                    while ($row = mysqli_fetch_array($result)) {
+                         $fieldname1 = $row['videoID'];
+                         $editdata = '<div class="block-weighted block-vweighted mob-mb-1">
+                              <form action="videoform.php" method="post">
+                              <div class="mb-05 content-hcenter weight-50">
+                              <input type="hidden" class="" maxlength="256" name="videoedit-id" data-name=""
+                              placeholder="" id="input" value="' . $fieldname1 . '" />
+                              <input type="submit" class="btn btn-default" name="Edit" value="Edit"  data-name="Edit" placeholder="" id="Edit"/></form>';
+
+                         $deletedata = '<div class="block-weighted block-vweighted mob-mb-1">
+                              <form action="videoform.php" method="post">
+                              <div class="mb-05 content-hcenter weight-50">
+                              <input type="hidden" class="" maxlength="256" name="videoDelete-id" data-name=""
+                              placeholder="" id="input" value="' . $fieldname1 . '" />
+                              <input type="submit" class="btn btn-danger" name="Delete" value="Delete"  data-name="Delete" placeholder="" id="Delete"/></form>';
+
+                         echo '  
+                              <tr>  
+                              <td>' . $editdata . ' ' . $deletedata . '</td>  
+                                   <td>' . $row['videoID'] . '</td>  
+                                   <td>' . $row['licenseNum'] . '</td>   
+                                   <td>' . $row['violation'] . '</td>  
+							<td>' . $row['url'] . '</td>  
+							<td>' . $row['date_time'] . '</td>  
+							<td>' . $row['status'] . '</td>  
+							<td>' . $row['badgeID'] . '</td>  
+								
+                               </tr>  
+                               ';
+                    }
+                    ?>
+               </table>
+          </div>
+     </div>
+</body>
+
+</html>
+<script>
+     $(document).ready(function () {
+          $('#employee_data').DataTable();
+          "processing" : true,
+               "serverSide" : true,
+                    "ajax" : {
+               url: "includes\videos.export.php",
+                    type: "POST"
+          },
+          dom: 'lBfrtip',
+               buttons: [
+                    'excel', 'csv', 'pdf', 'copy'
+               ],
+                    "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
+     });
+     });
+
+</script>

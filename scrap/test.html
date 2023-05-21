@@ -1,0 +1,284 @@
+<?php
+    include_once 'header.php';
+
+    require_once 'includes/dbh.inc.php';
+    session_start();
+    $ID=$_SESSION['id-number'];
+    $sql = "SELECT * FROM usersinfo WHERE badgeID = ('$ID')";
+    $results = mysqli_query($conn,$sql);
+
+    $badgeID = mysqli_fetch_array($results);
+?>
+
+<div class="block-vweighted block-weighted mt-2">
+        <div class="weight-50 " id="order-1">
+            <div class="content-hcenter h-min-200 mb-2" >
+                <div class="user-info h-min-100">
+                    <div class="content-hcenter h-min-100 bg-dark top-half">
+                        <div class="">
+                            <h1 class="h3-bold text-center text-white">Welcome Back!</h1>
+                        </div>
+                    </div>
+                    <div class="block-weighted h-min-100">
+                        <div class="weight-30 float-left">
+                            <img class="w-70 m-1" src="./dasma-logo.png">
+                        </div>
+                        <div class="weight-70">
+                            <div class="block-weighted m-2">
+                                <div class="weight-50">
+                                    <div class=" mx-2 mb-05">
+                                        <label class="label-bold ">LAST NAME</label>
+                                    </div>
+                                    <div class=" mx-2 mb-05">
+                                        <label class=" "><?php echo $badgeID['lastName']?></label>
+                                    </div>
+                                </div>
+                                <div class="weight-50">
+                                    <div class=" mx-2 mb-05">
+                                        <label class=" label-bold">FIRST NAME</label>
+                                    </div>
+                                    <div class=" mx-2 mb-05">
+                                        <label class=" "><?php echo $badgeID['firstName']?></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block-weighted mx-2">
+                                <div class="weight-50">
+                                    <div class=" mx-2 mb-05">
+                                        <label class="label-bold ">ID Number</label>
+                                    </div>
+                                    <div class=" mx-2 mb-05">
+                                        <label class=" "><?php echo $badgeID['badgeID']?></label>
+                                    </div>
+                                </div>
+                                <div class="weight-50">
+                                    <div class=" mx-2 mb-05">
+                                        <label class=" label-bold">Phone Number</label>
+                                    </div>
+                                    <div class=" mx-2 mb-05">
+                                        <label class=" "><?php echo $badgeID['usersPnumber']?></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-hcenter h-min-200 mb-2 " >
+                <div class="duty-info h-min-200" id="user_details">
+                    <div class="content-hcenter h-min-100 top-half">
+                        <div class="">
+                            <h2 class="h3-bold text-center">On Duty</h2>
+                        </div>
+                    </div>
+                    <div class="h-min-350">
+                        <div class="block-weighted ml-2">
+                            <div class="weight-20">
+                                <h3 class="h4-bold text-center">Details: </h3>
+                            </div>
+                            <div class="weight-80">
+                                <p class="h4">Name, ID#, 13:01</p>
+                            </div>
+                        </div>
+                        <div class="underline"></div>
+                        <div class="block-weighted ml-2 mt-1">
+                            <div class="weight-20">
+                                <h3 class="h4-bold text-center">Details: </h3>
+                            </div>
+                            <div class="weight-80">
+                                <p class="h4">Name, ID#, 13:01</p>
+                            </div>
+                        </div>
+                        <div class="underline"></div>
+                        <div class="block-weighted ml-2 mt-1">
+                            <div class="weight-20">
+                                <h3 class="h4-bold text-center">Details: </h3>
+                            </div>
+                            <div class="weight-80">
+                                <p class="h4">Name, ID#, 13:01</p>
+                            </div>
+                        </div>
+                        <div class="underline"></div>
+                        <div class="block-weighted ml-2 mt-1">
+                            <div class="weight-20">
+                                <h3 class="h4-bold text-center">Details: </h3>
+                            </div>
+                            <div class="weight-80">
+                                <p class="h4">Name, ID#, 13:01</p>
+                            </div>
+                        </div>
+                        <div class="underline"></div>
+                        <div class="block-weighted ml-2 mt-1">
+                            <div class="weight-20">
+                                <h3 class="h4-bold text-center">Details: </h3>
+                            </div>
+                            <div class="weight-80">
+                                <p class="h4">Name, ID#, 13:01</p>
+                            </div>
+                        </div>
+                        <div class="underline"></div>
+                        <div class="block-weighted ml-2 mt-1">
+                            <div class="weight-20">
+                                <h3 class="h4-bold text-center">Details: </h3>
+                            </div>
+                            <div class="weight-80">
+                                <p class="h4">Name, ID#, 13:01</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="weight-50 mr-4 order-1 mob-m-0" id="order-2">
+            <div class="content-hcenter h-min-200 mb-2 " id="order-2">
+                <div class="logs-info h-min-200">
+                    <div class="content-hcenter h-min-100 top-half">
+                        <div class="">
+                            <h2 class="h3-bold text-center">Logs</h2>
+                        </div>
+                    </div>
+                    <div class="h-min-350">
+                        <div class="block-weighted ml-2">
+                            <div class="weight-20">
+                                <h3 class="h4-bold text-center">Details: </h3>
+                            </div>
+                            <div class="weight-80">
+                                <p class="h4">Overspeeding, Dasmarinas, 13:01</p>
+                            </div>
+                        </div>
+                        <div class="block-weighted ml-2 mb-1">
+                            <div class="weight-20">
+                                <h3 class="h4-bold text-center">Status: </h3>
+                            </div>
+                            <div class="weight-80">
+                                <p class="unaddressed">Unaddressed</p>
+                            </div>
+                        </div>
+                        <div class="underline"></div>
+                        <div class="block-weighted ml-2 mt-1">
+                            <div class="weight-20">
+                                <h3 class="h4-bold text-center">Details: </h3>
+                            </div>
+                            <div class="weight-80">
+                                <p class="h4">Overspeeding, Dasmarinas, 13:01</p>
+                            </div>
+                        </div>
+                        <div class="block-weighted ml-2 mb-1">
+                            <div class="weight-20">
+                                <h3 class="h4-bold text-center">Status: </h3>
+                            </div>
+                            <div class="weight-80">
+                                <p class="pending">Pending</p>
+                            </div>
+                        </div>
+                        <div class="underline"></div>
+                        <div class="block-weighted ml-2 mt-1">
+                            <div class="weight-20">
+                                <h3 class="h4-bold text-center">Details: </h3>
+                            </div>
+                            <div class="weight-80">
+                                <p class="h4">Overspeeding, Dasmarinas, 13:01</p>
+                            </div>
+                        </div>
+                        <div class="block-weighted ml-2 mb-1">
+                            <div class="weight-20">
+                                <h3 class="h4-bold text-center">Status: </h3>
+                            </div>
+                            <div class="weight-80">
+                                <p class="reviewed">Reviewed</p>
+                            </div>
+                        </div>
+                        <div class="underline"></div>
+                        <div class="block-weighted ml-2 mt-1">
+                            <div class="weight-20">
+                                <h3 class="h4-bold text-center">Details: </h3>
+                            </div>
+                            <div class="weight-80">
+                                <p class="h4">Overspeeding, Dasmarinas, 13:01</p>
+                            </div>
+                        </div>
+                        <div class="block-weighted ml-2 mb-1">
+                            <div class="weight-20">
+                                <h3 class="h4-bold text-center">Status: </h3>
+                            </div>
+                            <div class="weight-80">
+                                <p class="unaddressed">Unaddressed</p>
+                            </div>
+                        </div>
+                        <div class="underline"></div>
+                        <div class="block-weighted ml-2 mt-1">
+                            <div class="weight-20">
+                                <h3 class="h4-bold text-center">Details: </h3>
+                            </div>
+                            <div class="weight-80">
+                                <p class="h4">Overspeeding, Dasmarinas, 13:01</p>
+                            </div>
+                        </div>
+                        <div class="block-weighted ml-2 mb-1">
+                            <div class="weight-20">
+                                <h3 class="h4-bold text-center">Status: </h3>
+                            </div>
+                            <div class="weight-80">
+                                <p class="pending">Pending</p>
+                            </div>
+                        </div>
+                        <div class="underline"></div>
+                        <div class="block-weighted ml-2 mt-1">
+                            <div class="weight-20">
+                                <h3 class="h4-bold text-center">Details: </h3>
+                            </div>
+                            <div class="weight-80">
+                                <p class="h4">Overspeeding, Dasmarinas, 13:01</p>
+                            </div>
+                        </div>
+                        <div class="block-weighted ml-2 mb-1">
+                            <div class="weight-20">
+                                <h3 class="h4-bold text-center">Status: </h3>
+                            </div>
+                            <div class="weight-80">
+                                <p class="reviewed">Reviewed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>  
+$(document).ready(function(){
+
+ fetch_user();
+
+ setInterval(function(){
+  update_last_activity();
+  fetch_user();
+ }, 5000);
+
+ function fetch_user()
+ {
+  $.ajax({
+   url:"fetch_user.php",
+   method:"POST",
+   success:function(data){
+    $('#user_details').html(data);
+   }
+  })
+ }
+
+ function update_last_activity()
+ {
+  $.ajax({
+   url:"onDuty.inc.php",
+   success:function()
+   {
+
+   }
+  })
+ }
+ 
+});  
+</script>
+
+</html>
