@@ -12,7 +12,7 @@ message = ""
 violation = ""
 
 # Variables for sending SMS
-apikey = '405b749bef6703ce4b3bf52f54386ff0'
+apikey = 'xxx'
 sendername = 'Thesis'
 
 # Initialize connection to database
