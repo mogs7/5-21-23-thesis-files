@@ -60,14 +60,14 @@ void loop() {
       if (!client.connected()){
         reconnect();
       }else{
-        client.publish(mqtt_topic, "1 ilc", 2);
+        client.publish(mqtt_topic, "1 ilc");
         //Serial.println("Published");
         digitalWrite(LED, HIGH);
         reconFlag = false;
         delay(3000);
       }
       if (reconFlag){
-        client.publish(mqtt_topic, "1 ilc", 2);
+        client.publish(mqtt_topic, "1 ilc");
         //Serial.println("Published");
         digitalWrite(LED, HIGH);
         reconFlag = false;
