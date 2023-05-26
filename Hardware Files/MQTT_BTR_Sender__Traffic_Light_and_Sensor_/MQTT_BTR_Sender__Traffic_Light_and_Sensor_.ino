@@ -80,7 +80,7 @@ void loop() {
         //Serial.println("Client state RED LIGHT" + String(client.state()));
         //Serial.println(digitalRead(sensorPin));
         if (digitalRead(sensorPin) == HIGH) {
-          client.publish(mqtt_topic, "1 btr", 2);
+          client.publish(mqtt_topic, "1 btr");
           //Serial.println("Client state SIGNAL READING LOOP" + String(client.state()));
           //Serial.println("Published");
           digitalWrite(LED, HIGH);
