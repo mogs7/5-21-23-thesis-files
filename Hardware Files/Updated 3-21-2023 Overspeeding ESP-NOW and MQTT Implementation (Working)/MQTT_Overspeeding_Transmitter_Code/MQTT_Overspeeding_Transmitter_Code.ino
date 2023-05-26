@@ -1,20 +1,8 @@
-/*
- * Uses R board
-  Technically this code is the receiver code since
-  it just receives Sensor 2's input and performs an
-  action when it is HIGH. This code isn't really sending
-  any information but the code used to send data is still 
-  here and just commented out for further use. Especially
-  when it is time to implement the ESP32-CAM.
-*/
-
-// Include Libraries
 #include <esp_now.h>
 #include <WiFi.h>
 
 #define LED 2
 
-// Variables for test data
 unsigned long startTime = 0, timer = 0;
 const float timeOut = 900; // Time out timer in ms
 const int DISTANCE = 500, MAX_SPEED = 5.56; //Distance in cm and speed in m/s
@@ -55,8 +43,6 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
 }
 
 void setup() {
-  
-  // Set up Serial Monitor
   Serial.begin(115200);
  
   // Set ESP32 as a Wi-Fi Station
@@ -86,7 +72,7 @@ void setup() {
 
   esp_now_register_recv_cb(OnDataRecv);
   
-  // Sensor 1
+  // Sensor 1 and LED
   pinMode(pir1, INPUT);
   pinMode(LED, OUTPUT);
 }
