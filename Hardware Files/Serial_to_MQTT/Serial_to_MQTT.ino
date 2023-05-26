@@ -30,9 +30,9 @@ void setup_wifi() {
 
 void reconnect() {
   while (!client.connected()) {
-    Serial.print("Attempting MQTT connection...");
+    //Serial.print("Attempting MQTT connection...");
     if (client.connect("ESP8266Client")) {
-      Serial.println("connected");
+      //Serial.println("connected");
       reconFlag = true;
     } else {
       Serial.print("failed, rc=");
@@ -60,15 +60,15 @@ void loop() {
       if (!client.connected()){
         reconnect();
       }else{
-        client.publish(mqtt_topic, "1 ilc");
-        Serial.println("Published");
+        client.publish(mqtt_topic, "1 ilc", 2);
+        //Serial.println("Published");
         digitalWrite(LED, HIGH);
         reconFlag = false;
         delay(3000);
       }
       if (reconFlag){
-        client.publish(mqtt_topic, "1 ilc");
-        Serial.println("Published");
+        client.publish(mqtt_topic, "1 ilc", 2);
+        //Serial.println("Published");
         digitalWrite(LED, HIGH);
         reconFlag = false;
         delay(3000);
