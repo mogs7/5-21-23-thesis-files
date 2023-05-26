@@ -29,9 +29,9 @@ void setup_wifi() {
 
 void reconnect() {
   while (!client.connected()) {
-    Serial.print("Attempting MQTT connection...");
+    //Serial.print("Attempting MQTT connection...");
     if (client.connect("ESP8266Client")) {
-      Serial.println("connected");
+      //Serial.println("connected");
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -61,11 +61,11 @@ void loop() {
   }
   else{
     digitalWrite(greenPin, HIGH);
-    Serial.println("Client state GREEN" + String(client.state()));
+    //Serial.println("Client state GREEN" + String(client.state()));
     delay(5000);
     digitalWrite(greenPin, LOW);
     digitalWrite(yellowPin, HIGH);
-    Serial.println("Client state YELLOW" + String(client.state()));
+    //Serial.println("Client state YELLOW" + String(client.state()));
     delay(3000);
     digitalWrite(yellowPin, LOW);
     digitalWrite(redPin, HIGH);
@@ -77,21 +77,21 @@ void loop() {
       }
       else{
         // read motion sensor and publish a message if motion is detected
-        Serial.println("Client state RED LIGHT" + String(client.state()));
-        Serial.println(digitalRead(sensorPin));
+        //Serial.println("Client state RED LIGHT" + String(client.state()));
+        //Serial.println(digitalRead(sensorPin));
         if (digitalRead(sensorPin) == HIGH) {
-          client.publish(mqtt_topic, "1 btr");
-          Serial.println("Client state SIGNAL READING LOOP" + String(client.state()));
-          Serial.println("Published");
+          client.publish(mqtt_topic, "1 btr", 2);
+          //Serial.println("Client state SIGNAL READING LOOP" + String(client.state()));
+          //Serial.println("Published");
           digitalWrite(LED, HIGH);
           delay(3000); 
           digitalWrite(LED, LOW);
         }
       }
       unsigned long currentTime = millis();
-      Serial.println("Running time: " + String(runningTime));
-      Serial.println("Current time: " + String(currentTime));
-      Serial.println("Time difference: "+ String(currentTime-runningTime));
+      //Serial.println("Running time: " + String(runningTime));
+      //Serial.println("Current time: " + String(currentTime));
+      //Serial.println("Time difference: "+ String(currentTime-runningTime));
       if (currentTime - runningTime >= 10000){
         break;
       }
