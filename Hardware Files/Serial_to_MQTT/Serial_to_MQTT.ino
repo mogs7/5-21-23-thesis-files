@@ -7,6 +7,10 @@ const char* ssid = "BubbleGum";
 const char* password = "12345678";
 const char* mqtt_server = "broker.emqx.io";
 const char* mqtt_topic = "thesisviolation";
+const char* mqtt_username = "emqx";
+const char* mqtt_password = "public";
+const int mqtt_port = 1883;
+
 bool reconFlag = false;
 
 WiFiClient espClient;
@@ -31,7 +35,7 @@ void setup_wifi() {
 void reconnect() {
   while (!client.connected()) {
     //Serial.print("Attempting MQTT connection...");
-    if (client.connect("ESP8266Client")) {
+    if (client.connect("ovs-ilc-publisher", mqtt_username, mqtt_password)) {
       //Serial.println("connected");
       reconFlag = true;
     } else {
@@ -47,7 +51,7 @@ void setup() {
   WiFi.setSleep(false);
   Serial.begin(115200);
   setup_wifi();
-  client.setServer(mqtt_server, 1883);
+  client.setServer(mqtt_server, mqtt_port);
   pinMode(LED, OUTPUT);
 }
 
