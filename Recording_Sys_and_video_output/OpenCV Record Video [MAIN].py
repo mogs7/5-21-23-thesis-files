@@ -7,21 +7,31 @@ from datetime import datetime
 import json
 import requests
 from urllib.parse import urlencode 
+import boto3
 
 message = ""
 violation = ""
 
+# Intialize AWS S3: upload_file(filename [file path], bucket name, key [name to insert in bucket])
+s3client = boto3.client("s3")
+bucketName = "thesis-iot-traffic-violation-detection"
 # Variables for sending SMS
-apikey = 'xxx'
+apikey = '405b749bef6703ce4b3bf52f54386ff0'
 sendername = 'Thesis'
 
-# Initialize connection to database
-db = mysql.connector.connect(
-    host = "localhost",
-    user = "root",
-    password = "",
-    database = "violationdetector"
-)
+# Initialize connection to database. Chance of errors happening here so used Try Except
+while True:
+    try:
+        db = mysql.connector.connect(
+            host = "us-cdbr-east-06.cleardb.net",
+            user = "b6a40db6e6872e",
+            password = "4af93b62",
+            database = "heroku_2bada4c2bd2d59b"
+        )
+        break
+    except mysql.connector.Error as e:
+        print("Error occured when intializing connection to database. Retrying in 3 seconds....")
+        time.sleep(3)
 
 # Setup for MQTT Communication to ESP (Broker options: broker.emqx.io | broker.hivemq.com)
 broker_address = "broker.emqx.io"
@@ -30,7 +40,7 @@ topic = "thesisviolation"
 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code " + str(rc))
-    client.subscribe(topic)
+    client.subscribe(topic, qos=2)
 
 def on_message(client, userdata, msg):
     global message
@@ -122,18 +132,22 @@ while True:
             smsMessage = violationType.title() + " violation detected at time and date: " + timeString
 
             # Retrieve online users
-            url ='http://127.0.0.1/webapp/includes/online.data.inc.php'
+            url ='https://thesis-violation.herokuapp.com/includes/online.data.inc.php'
             online_users = []
-            response = requests.get(url)
-
+            
             while True:
-                if response.status_code == 200:
-                    data = json.loads(response.text)
-                    for user in data:
-                        online_users.append(int(user['usersPnumber']))
-                    break
-                else:
-                    print('Error retrieving data:', response.status_code)
+                try:
+                    response = requests.get(url)
+                    if response.status_code == 200:
+                        data = json.loads(response.text)
+                        for user in data:
+                            online_users.append(int(user['usersPnumber']))
+                        break
+                    else:
+                        print('Error retrieving data:', response.status_code)
+                except requests.exceptions.ConnectionError as e:
+                    print ("Error caught when obtaining online users. Retrying in 3 seconds....")
+                    time.sleep(3)
 
             for phoneNumber in online_users:
                 params = (
@@ -143,7 +157,15 @@ while True:
                     ('number', phoneNumber)
                 )
                 path = 'https://api.semaphore.co/api/v4/messages?' + urlencode(params)
-                requests.post(path)
+                
+                # Chance of error occuring here. Used Try Except block
+                while True:
+                    try:
+                        requests.post(path)
+                        break
+                    except requests.exceptions.ConnectionError as e:
+                        print("Error occured when posting to API. Retrying in 3 seconds....") 
+                        time.sleep(3)
                 
 
             message = ""
@@ -154,17 +176,21 @@ while True:
             out.release()
             cv2.destroyAllWindows()
 
-            # Chance that connection to DB will fail so made a try except block
+            # Upload to bucket 
+            s3client.upload_file("Recording_Sys_and_video_output/"+filename, bucketName, filename, ExtraArgs = {'Metadata': {'Content-Type': 'video/mp4'}})
+
+            # Upload to Database. Chance that connection to DB will fail so made a try except block
             while True:
                 try:
                     cursor = db.cursor()
+                    #print("test")
                     break
                 except mysql.connector.errors.OperationalError as e:
                     print("Failed to create cursor. Retrying in 3 seconds...")
                     time.sleep(3)
             
             query = "INSERT into video (url, date_time, status, violation) VALUES (%s, %s, %s, %s)"
-            values = ("Recording_Sys_and_video_output/"+filename, timeString, 'Pending', violation)
+            values = ("https://thesis-iot-traffic-violation-detection.s3.ap-southeast-1.amazonaws.com/"+filename, timeString, 'Pending', violation)
             cursor.execute(query, values)
             db.commit()
             # db.close()
