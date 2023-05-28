@@ -23,7 +23,7 @@ sendername = 'Thesis'
 
 # Make DB configuration dictionary
 db_config = {
-    'host': '',
+    'host': 'us-cdbr-east-06.cleardb.net',
     'user': 'b6a40db6e6872e',
     'password': '4af93b62',
     'database': 'heroku_2bada4c2bd2d59b'
