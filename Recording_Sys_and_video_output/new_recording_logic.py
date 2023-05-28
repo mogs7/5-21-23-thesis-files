@@ -10,7 +10,6 @@ from urllib.parse import urlencode
 import boto3
 from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
 from moviepy.video.io.VideoFileClip import VideoFileClip
-import socket
 
 message = ""
 violation = ""
@@ -22,17 +21,24 @@ bucketName = "thesis-iot-traffic-violation-detection"
 apikey = '405b749bef6703ce4b3bf52f54386ff0'
 sendername = 'Thesis'
 
+# Make DB configuration dictionary
+db_config = {
+    'host': 'us-cdbr-east-06.cleardb.net',
+    'user': 'b6a40db6e6872e',
+    'password': '4af93b62',
+    'database': 'heroku_2bada4c2bd2d59b'
+}
+
 # Initialize connection to database. Chance of errors happening here so used Try Except
 while True:
     try:
-        db = mysql.connector.connect(
-            host = "us-cdbr-east-06.cleardb.net",
-            user = "b6a40db6e6872e",
-            password = "4af93b62",
-            database = "heroku_2bada4c2bd2d59b"
-        )
+        db = mysql.connector.connect(**db_config)
         print("Successfully connected to database")
         break
+    except mysql.connector.Error as e:
+        print("An error occured when interacting with the Database: " + str(e) + ". Retrying in 3 seconds...")
+        db = mysql.connector.connect(**db_config)
+        time.sleep(3)
     except Exception as e:
         print("Error occured when intializing connection to database: " + str(e) + ". Retrying in 3 seconds....")
         time.sleep(3)
@@ -76,7 +82,7 @@ video_duration_exceeded = False
 cap = cv2.VideoCapture(0)
 
 # Counter for video name output
-counter = 0
+counter = 1
 
 # Time string for unique name everytime the file is opened
 timeName = time.monotonic()
@@ -89,15 +95,15 @@ file_path = "C:/xampp/htdocs/webapp/Recording_Sys_and_video_output/"
 
 # Start recording
 while True:
+    """
     # Skip the first loop to allow the code to run
     if (counter != 0):
         # Check if last video was triggered or not
         if(triggered == False):
             delete_video = file_path + "output_" + str(timeName) + "_" + str(counter) + ".mp4"
             os.remove(delete_video)
-
+    """
     # Create VideoWriter object for each recording session
-    counter = counter+1
     filename = "output_" + str(timeName) + "_" + str(counter) + ".mp4"
     out = cv2.VideoWriter("Recording_Sys_and_video_output/"+filename, fourcc, 20.0, (640, 480), True)
 
@@ -109,7 +115,7 @@ while True:
     output_video = "TRIMMED" + filename
 
     # Video cut length
-    video_max_duration = 10
+    video_max_duration = 3
 
     while recording:
         # This captures frame by frame
@@ -148,6 +154,10 @@ while True:
                 cut_time = video_duration - video_max_duration
                 # Trim video
                 ffmpeg_extract_subclip(input_video, cut_time, video_duration, targetname = output_video)
+                print("Successfully trimmed video")
+                clip.close()
+                os.remove(input_video)
+                print("Successfully deleted old original video")
                 bucketFileUpload = output_video
             else:
                 video_duration_exceeded = False
@@ -177,16 +187,15 @@ while True:
             while True:
                 try:
                     cursor = db.cursor()
-                    ("Successfully created DB cursor object")
+                    print("Successfully created DB cursor object")
                     break
+                except mysql.connector.Error as e:
+                    print("An error occured when interacting with the Database: " + str(e) + ". Retrying in 3 seconds...")
+                    db = mysql.connector.connect(**db_config)
+                    time.sleep(3)
                 except Exception as e:
-                    print("Failed to create cursor: " + str(e) + ". Retrying in 3 seconds...")
-                    db = mysql.connector.connect(
-                        host = "us-cdbr-east-06.cleardb.net",
-                        user = "b6a40db6e6872e",
-                        password = "4af93b62",
-                        database = "heroku_2bada4c2bd2d59b"
-                    )
+                    print("An error occured when interacting with the Database: " + str(e) + ". Retrying in 3 seconds...")
+                    db = mysql.connector.connect(**db_config)
                     time.sleep(3)
             
             query = "INSERT into video (url, date_time, status, violation) VALUES (%s, %s, %s, %s)"   
@@ -197,7 +206,7 @@ while True:
                 try:
                     cursor.execute(query, values)
                     db.commit()
-                    ("Sucessfully executed DB query")
+                    print("Sucessfully executed DB query")
                     break
                 except Exception as e:
                     print("Error occured when executing query: " + str(e) + ". Retrying in 3 seconds....")
@@ -223,7 +232,6 @@ while True:
                     time.sleep(3)
 
             for phoneNumber in online_users:
-                print("HELLOWEEEEEEEEE")
                 params = (
                     ('apikey', apikey),
                     ('sendername', sendername),
@@ -236,7 +244,7 @@ while True:
                 while True:
                     try:
                         requests.post(path)
-                        #print("Successfully sent message to: " + str(phoneNumber))
+                        print("Successfully sent message to: " + str(phoneNumber))
                         break
                     except Exception as e:
                         print("Error occured when posting to API: " + str(e) + ". Retrying in 3 seconds....") 
@@ -245,6 +253,8 @@ while True:
             # Wait after receiving message
             time.sleep(2)
             break
+
+        counter = counter+1
 
         client.loop(timeout=0)
         #print("loop end")
