@@ -23,7 +23,7 @@ sendername = 'Thesis'
 
 # Make DB configuration dictionary
 db_config = {
-    'host': 'us-cdbr-east-06.cleardb.net',
+    'host': '',
     'user': 'b6a40db6e6872e',
     'password': '4af93b62',
     'database': 'heroku_2bada4c2bd2d59b'
@@ -95,16 +95,9 @@ file_path = "C:/xampp/htdocs/webapp/Recording_Sys_and_video_output/"
 
 # Start recording
 while True:
-    """
-    # Skip the first loop to allow the code to run
-    if (counter != 0):
-        # Check if last video was triggered or not
-        if(triggered == False):
-            delete_video = file_path + "output_" + str(timeName) + "_" + str(counter) + ".mp4"
-            os.remove(delete_video)
-    """
     # Create VideoWriter object for each recording session
     filename = "output_" + str(timeName) + "_" + str(counter) + ".mp4"
+    print("Created video with file name: " + filename)
     out = cv2.VideoWriter("Recording_Sys_and_video_output/"+filename, fourcc, 20.0, (640, 480), True)
 
     start_time = cv2.getTickCount()
@@ -112,10 +105,10 @@ while True:
 
     # Input and output video for video trimming
     input_video = file_path + filename
-    output_video = "TRIMMED" + filename
+    output_video = file_path + "TRIMMED" + filename
 
     # Video cut length
-    video_max_duration = 3
+    video_max_duration = 10
 
     while recording:
         # This captures frame by frame
