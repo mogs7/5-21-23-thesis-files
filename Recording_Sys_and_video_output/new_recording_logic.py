@@ -37,7 +37,6 @@ while True:
         break
     except mysql.connector.Error as e:
         print("An error occured when interacting with the Database: " + str(e) + ". Retrying in 3 seconds...")
-        db = mysql.connector.connect(**db_config)
         time.sleep(3)
     except Exception as e:
         print("Error occured when intializing connection to database: " + str(e) + ". Retrying in 3 seconds....")
@@ -184,11 +183,9 @@ while True:
                     break
                 except mysql.connector.Error as e:
                     print("An error occured when interacting with the Database: " + str(e) + ". Retrying in 3 seconds...")
-                    db = mysql.connector.connect(**db_config)
                     time.sleep(3)
                 except Exception as e:
                     print("An error occured when interacting with the Database: " + str(e) + ". Retrying in 3 seconds...")
-                    db = mysql.connector.connect(**db_config)
                     time.sleep(3)
             
             query = "INSERT into video (url, date_time, status, violation) VALUES (%s, %s, %s, %s)"   
