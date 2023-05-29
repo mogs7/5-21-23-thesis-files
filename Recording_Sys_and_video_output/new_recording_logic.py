@@ -44,7 +44,7 @@ while True:
 
 # Setup for MQTT Communication to ESP (Broker options: broker.emqx.io | broker.hivemq.com)
 broker_address = "broker.emqx.io"
-topic = "thesisviolation"
+topic = "btrthesisviolation"
     
 
 def on_connect(client, userdata, flags, rc):
@@ -97,7 +97,7 @@ while True:
     # Create VideoWriter object for each recording session
     filename = "output_" + str(timeName) + "_" + str(counter) + ".mp4"
     print("Created video with file name: " + filename)
-    out = cv2.VideoWriter("Recording_Sys_and_video_output/"+filename, fourcc, 20.0, (640, 480), True)
+    out = cv2.VideoWriter(file_path + filename, fourcc, 20.0, (640, 480), True)
 
     start_time = cv2.getTickCount()
     recording = True
@@ -182,6 +182,7 @@ while True:
                     print("Successfully created DB cursor object")
                     break
                 except mysql.connector.Error as e:
+                    db = mysql.connector.connect(**db_config)
                     print("An error occured when interacting with the Database: " + str(e) + ". Retrying in 3 seconds...")
                     time.sleep(3)
                 except Exception as e:
