@@ -176,6 +176,7 @@ while True:
             triggered = True
 
             while True:
+                print("Uploading file to S3 Bucket....")
                 try:
                     s3client.upload_file(bucketFileUpload, bucketName, bucketFileUpload, ExtraArgs = {'Metadata': {'Content-Type': 'video/mp4'}})
                     break
