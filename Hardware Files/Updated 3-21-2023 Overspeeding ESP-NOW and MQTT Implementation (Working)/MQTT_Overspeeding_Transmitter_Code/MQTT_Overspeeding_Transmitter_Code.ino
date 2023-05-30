@@ -1,11 +1,13 @@
+// Include Libraries
 #include <esp_now.h>
 #include <WiFi.h>
 
 #define LED 2
 
+// Variables for test data
 unsigned long startTime = 0, timer = 0;
-const float timeOut = 900; // Time out timer in ms
-const int DISTANCE = 500, MAX_SPEED = 5.56; //Distance in cm and speed in m/s
+const float timeOut = 5000; // Time out timer in ms
+const int DISTANCE = 1388, MAX_SPEED = 2.7; //Distance in cm and speed in m/s
 const int pir1 = 23;
 bool sensor1Triggered = false, sensor2Triggered = false;
 
@@ -43,6 +45,8 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
 }
 
 void setup() {
+  
+  // Set up Serial Monitor
   Serial.begin(115200);
  
   // Set ESP32 as a Wi-Fi Station
@@ -72,7 +76,7 @@ void setup() {
 
   esp_now_register_recv_cb(OnDataRecv);
   
-  // Sensor 1 and LED
+  // Sensor 1
   pinMode(pir1, INPUT);
   pinMode(LED, OUTPUT);
 }
@@ -85,15 +89,29 @@ void loop() {
     startTime = millis(); // store the start time
   }
 
-  if (pir2Status == HIGH) {
-    sensor2Triggered = true;
-    //Serial.println("Sensor 2 triggered: " + String(sensor2Triggered));
+  if (!sensor1Triggered && sensor2Triggered){
+    sensor2Triggered = false;
   }
 
-  /*Serial.print("Sensor 1 stat: ");
+  while (sensor1Triggered){
+    if (pir2Status == HIGH) {
+      sensor2Triggered = true;
+      //Serial.println("Sensor 2 triggered: " + String(sensor2Triggered));
+      break;
+    } else if (sensor1Triggered && !sensor2Triggered){
+      timer = millis();
+      if ((timer - startTime) >= timeOut){
+        sensor1Triggered = false;
+        //Serial.println("Sensor 1 Timeout");
+      }
+  }
+  }
+  
+/*
+  Serial.print("Sensor 1 stat: ");
   Serial.println(sensor1Triggered);
   Serial.print("Sensor 2 stat: ");
-  Serial.println(sensor2Triggered);*/
+  Serial.println(sensor2Triggered);
   
   if (!sensor1Triggered && sensor2Triggered){
     sensor2Triggered = false;
@@ -103,14 +121,16 @@ void loop() {
         sensor1Triggered = false;
         //Serial.println("Sensor 1 Timeout");
       }
-  } else if (sensor1Triggered && sensor2Triggered){
+  } else */
+  if (sensor1Triggered && sensor2Triggered){
     sensor1Triggered = false;
     sensor2Triggered = false;
     float speed = calculateSpeed(startTime);
-    /*Serial.print("Speed of object: ");
+    /*
+    Serial.print("Speed of object: ");
     Serial.print(speed*3.6);
     Serial.println(" km/h");*/
-
+    
     //Overspeeding:
     if (speed >= MAX_SPEED && !isinf(speed)){
       Serial.print("z"); 
