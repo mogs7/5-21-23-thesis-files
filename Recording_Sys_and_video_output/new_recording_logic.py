@@ -31,6 +31,7 @@ db_config = {
 
 # Initialize connection to database. Chance of errors happening here so used Try Except
 while True:
+    print("Initializing connection to database....")
     try:
         db = mysql.connector.connect(**db_config)
         print("Successfully connected to database")
@@ -44,7 +45,7 @@ while True:
 
 # Setup for MQTT Communication to ESP (Broker options: broker.emqx.io | broker.hivemq.com)
 broker_address = "broker.emqx.io"
-topic = "btrthesisviolation"
+topic = "ilcthesisviolation"
     
 
 def on_connect(client, userdata, flags, rc):
@@ -62,6 +63,7 @@ client.on_message = on_message
 
 # Error handling for unreachable MQTT broker
 while True:
+    print("Intializing connection to MQTT Broker....")
     try:
         client.connect(broker_address, 1883, 60)
         print("Successfully connected to MQTT Broker")
@@ -173,10 +175,17 @@ while True:
             recording = False
             triggered = True
 
-            s3client.upload_file(bucketFileUpload, bucketName, bucketFileUpload, ExtraArgs = {'Metadata': {'Content-Type': 'video/mp4'}})
+            while True:
+                try:
+                    s3client.upload_file(bucketFileUpload, bucketName, bucketFileUpload, ExtraArgs = {'Metadata': {'Content-Type': 'video/mp4'}})
+                    break
+                except Exception as e:
+                    print("Error occured when uploading video to S3 bucket: " + str(e) + " Retrying in 3 seconds....")
+                    time.sleep(3)
 
             # Upload to Database. Chance that connection to DB will fail so made a try except block
             while True:
+                print("Attempting to create DB cursor object....")
                 try:
                     cursor = db.cursor()
                     print("Successfully created DB cursor object")
@@ -194,6 +203,7 @@ while True:
             
             # Chance of error when executing query
             while True:
+                print("Attemping to execute DB query....")
                 try:
                     cursor.execute(query, values)
                     db.commit()
@@ -208,6 +218,7 @@ while True:
             online_users = []
             
             while True:
+                print("Attemping to retrieve list of online users....")
                 try:
                     response = requests.get(url)
                     if response.status_code == 200:
@@ -233,6 +244,7 @@ while True:
                 
                 # Chance of error occuring here. Used Try Except block
                 while True:
+                    print("Attemping to post to API....")
                     try:
                         requests.post(path)
                         print("Successfully sent message to: " + str(phoneNumber))
