@@ -45,7 +45,7 @@ while True:
 
 # Setup for MQTT Communication to ESP (Broker options: broker.emqx.io | broker.hivemq.com)
 broker_address = "broker.emqx.io"
-topic = "ilcthesisviolation"
+topic = "ovsthesisviolation"
     
 
 def on_connect(client, userdata, flags, rc):
