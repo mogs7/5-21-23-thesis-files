@@ -13,6 +13,7 @@ from moviepy.video.io.VideoFileClip import VideoFileClip
 
 message = ""
 violation = ""
+ovsSpeed = ""
 
 # Intialize AWS S3: upload_file(filename [file path], bucket name, key [name to insert in bucket])
 s3client = boto3.client("s3")
@@ -169,7 +170,13 @@ while True:
 
             # Put violation type to variable
             violationType = violation
-            smsMessage = violationType.title() + " violation detected at time and date: " + timeString
+
+            if (violation == "over speeding"):
+                ovsSpeed = message.replace("1 ovs","")
+                ovsSpeedFloat = float(ovsSpeed)
+                smsMessage = violationType.title() + " violation detected at time and date: " + timeString + ". Detected Speed:" + round(ovsSpeedFloat,2) + "km/h"
+            else:
+                smsMessage = violationType.title() + " violation detected at time and date: " + timeString
 
             message = ""
             recording = False
@@ -256,6 +263,7 @@ while True:
             
             # Wait after receiving message
             time.sleep(2)
+            ovsSpeed = ""
             break
 
         counter = counter+1
