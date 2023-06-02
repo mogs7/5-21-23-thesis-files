@@ -7,8 +7,9 @@
 // Variables for test data
 unsigned long startTime = 0, timer = 0;
 const float timeOut = 5000; // Time out timer in ms
-const int DISTANCE = 1388, MAX_SPEED = 2.7; //Distance in cm and speed in m/s
+const float DISTANCE = 1388.0, MAX_SPEED = 2.7; //Distance in cm and speed in m/s
 const int pir1 = 23;
+float serialSpeed;
 bool sensor1Triggered = false, sensor2Triggered = false;
 
 // Reading to be received from other board
@@ -106,34 +107,17 @@ void loop() {
       }
   }
   }
-  
-/*
-  Serial.print("Sensor 1 stat: ");
-  Serial.println(sensor1Triggered);
-  Serial.print("Sensor 2 stat: ");
-  Serial.println(sensor2Triggered);
-  
-  if (!sensor1Triggered && sensor2Triggered){
-    sensor2Triggered = false;
-  } else if (sensor1Triggered && !sensor2Triggered){
-      timer = millis();
-      if ((timer - startTime) >= timeOut){
-        sensor1Triggered = false;
-        //Serial.println("Sensor 1 Timeout");
-      }
-  } else */
+
   if (sensor1Triggered && sensor2Triggered){
     sensor1Triggered = false;
     sensor2Triggered = false;
     float speed = calculateSpeed(startTime);
-    /*
-    Serial.print("Speed of object: ");
-    Serial.print(speed*3.6);
-    Serial.println(" km/h");*/
+    serialSpeed = speed*3.6;
     
     //Overspeeding:
     if (speed >= MAX_SPEED && !isinf(speed)){
-      Serial.print("z"); 
+      Serial.print("z" + String(serialSpeed) + " "); 
+      serialSpeed = 0;
     }
   }
   delay(1000);
@@ -145,8 +129,6 @@ float calculateSpeed(unsigned long startTime) {
     float endTime = millis();
     float timeElapsed = endTime - startTime;
     timeElapsed /= 1000;
-    //Serial.print("Time Elapsed :");
-    //Serial.println(timeElapsed);
     float speed = (distance/timeElapsed);
     return speed;
 }
