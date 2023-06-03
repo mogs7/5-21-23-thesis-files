@@ -6,8 +6,8 @@
 
 // Variables for test data
 unsigned long startTime = 0, timer = 0;
-const float timeOut = 5000; // Time out timer in ms
-const float DISTANCE = 1388.0, MAX_SPEED = 2.7; //Distance in cm and speed in m/s
+const float timeOut = 5000.0; // Time out timer in ms
+const float DISTANCE = 13.88, MAX_SPEED = 2.7; //Distance in m and speed in m/s
 const int pir1 = 23;
 float serialSpeed;
 bool sensor1Triggered = false, sensor2Triggered = false;
@@ -82,6 +82,23 @@ void setup() {
   pinMode(LED, OUTPUT);
 }
 
+float calculateSpeed(unsigned long startTime) {
+    unsigned long endTime = millis();
+    /*Serial.print("Start Time: ");
+    Serial.println(startTime);
+    Serial.print("End Time: ");
+    Serial.println(endTime);*/
+    float timeElapsed = float(endTime - startTime)/1000.0f;
+    /*Serial.print("Time Elapsed: ");
+    Serial.println(timeElapsed);*/
+    if (timeElapsed == 0){
+      return 0.0;
+    } else{
+      float speed = (DISTANCE/timeElapsed);
+      return speed;
+    }
+}
+
 void loop() {
   if (digitalRead(pir1) == HIGH) {
     sensor1Triggered = true;
@@ -122,13 +139,4 @@ void loop() {
   }
   delay(1000);
   digitalWrite(LED, LOW);
-}
-
-float calculateSpeed(unsigned long startTime) {
-    float distance = DISTANCE/100;
-    float endTime = millis();
-    float timeElapsed = endTime - startTime;
-    timeElapsed /= 1000;
-    float speed = (distance/timeElapsed);
-    return speed;
 }
