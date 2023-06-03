@@ -174,7 +174,7 @@ while True:
             if (violation == "over speeding"):
                 ovsSpeed = message.replace("1 ovs","")
                 ovsSpeedFloat = float(ovsSpeed)
-                smsMessage = violationType.title() + " violation detected at time and date: " + timeString + ". Detected Speed:" + round(ovsSpeedFloat,2) + "km/h"
+                smsMessage = violationType.title() + " violation detected at time and date: " + timeString + ". Detected Speed:" + str(round(ovsSpeedFloat,2)) + "km/h"
             else:
                 smsMessage = violationType.title() + " violation detected at time and date: " + timeString
 
