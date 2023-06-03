@@ -16,7 +16,7 @@ violation = ""
 s3client = boto3.client("s3")
 bucketName = "thesis-iot-traffic-violation-detection"
 # Variables for sending SMS
-apikey = '405b749bef6703ce4b3bf52f54386ff0'
+apikey = 'x'
 sendername = 'Thesis'
 
 # Initialize connection to database. Chance of errors happening here so used Try Except
