@@ -271,9 +271,6 @@ while True:
         client.loop(timeout=0)
         #print("loop end")
 
-
-    # Release the VideoWriter object for each recording session
     out.release()
 
-    # Wait for 1 second before starting a new recording session
     time.sleep(1)
