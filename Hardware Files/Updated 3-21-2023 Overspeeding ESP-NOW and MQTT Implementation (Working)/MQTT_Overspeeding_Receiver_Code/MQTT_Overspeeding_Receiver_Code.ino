@@ -72,6 +72,6 @@ void loop() {
   else {
     Serial.println("Sending error");
   }
-  delay(250);
+  delay(1000);
   digitalWrite(LED, LOW);
 }
