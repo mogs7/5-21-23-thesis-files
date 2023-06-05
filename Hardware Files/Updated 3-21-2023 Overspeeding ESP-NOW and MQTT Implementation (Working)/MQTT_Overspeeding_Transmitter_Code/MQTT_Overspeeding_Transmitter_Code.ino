@@ -5,7 +5,7 @@
 
 unsigned long startTime = 0, timer = 0;
 const float timeOut = 5000.0; // Time out timer in ms
-const float DISTANCE = 13.88, MAX_SPEED = 2.7; //Distance in m and speed in m/s
+const float DISTANCE = 13.88, MAX_SPEED = 2.78; //Distance in m and speed in m/s
 const int pir1 = 23;
 float serialSpeed;
 bool sensor1Triggered = false, sensor2Triggered = false;
@@ -125,6 +125,6 @@ void loop() {
       serialSpeed = 0;
     }
   }
-  delay(1000);
+  delay(250);
   digitalWrite(LED, LOW);
 }
