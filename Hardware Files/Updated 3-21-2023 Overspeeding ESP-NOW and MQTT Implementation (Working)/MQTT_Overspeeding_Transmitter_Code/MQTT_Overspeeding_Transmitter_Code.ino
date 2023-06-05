@@ -109,6 +109,7 @@ void loop() {
       if ((timer - startTime) >= timeOut){
         sensor1Triggered = false;
         //Serial.println("Sensor 1 Timeout");
+        break;
       }
   }
   }
@@ -125,6 +126,6 @@ void loop() {
       serialSpeed = 0;
     }
   }
-  delay(250);
+  delay(500);
   digitalWrite(LED, LOW);
 }
