@@ -1,0 +1,182 @@
+<mxfile host="app.diagrams.net" modified="2023-06-12T08:52:23.859Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="ZDjXhZYTc2G2esM8LRgx" version="21.3.8" type="device">
+  <diagram name="Page-1" id="87obYo9IVu9uCJ9HTKx4">
+    <mxGraphModel dx="913" dy="1603" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Lx5FxVdhqiOAjh-NJIth-1" target="Rv_8nFQpvILyS6SBei3u-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Lx5FxVdhqiOAjh-NJIth-1" target="Rv_8nFQpvILyS6SBei3u-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Lx5FxVdhqiOAjh-NJIth-1" value="Start" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="300" y="-340" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Lx5FxVdhqiOAjh-NJIth-3" target="Rv_8nFQpvILyS6SBei3u-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="120" y="175" />
+              <mxPoint x="120" y="30" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Lx5FxVdhqiOAjh-NJIth-3" target="Lx5FxVdhqiOAjh-NJIth-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Lx5FxVdhqiOAjh-NJIth-3" value="Did Device 1 &lt;br&gt;PIR sensor detect movement?" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="300" y="120" width="120" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="Lx5FxVdhqiOAjh-NJIth-6" value="No" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="265.5" y="150" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Lx5FxVdhqiOAjh-NJIth-8" value="Yes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="369.44" y="230" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Lx5FxVdhqiOAjh-NJIth-9" target="Rv_8nFQpvILyS6SBei3u-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Lx5FxVdhqiOAjh-NJIth-9" value="Begin interval timer" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="302.25" y="280" width="115.5" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Lx5FxVdhqiOAjh-NJIth-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="Lx5FxVdhqiOAjh-NJIth-10" target="Lx5FxVdhqiOAjh-NJIth-12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Lx5FxVdhqiOAjh-NJIth-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="Lx5FxVdhqiOAjh-NJIth-10" target="Lx5FxVdhqiOAjh-NJIth-15" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Lx5FxVdhqiOAjh-NJIth-10" value="Did Device 2&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;PIR sensor detect movement?" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="296.94" y="450" width="125" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Lx5FxVdhqiOAjh-NJIth-12" target="Rv_8nFQpvILyS6SBei3u-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Lx5FxVdhqiOAjh-NJIth-12" value="Device 1 calculates speed with set Distance variable and Time Elapsed variable for vehicle to move from Device 1 to Device 2" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="284.69" y="600" width="150.5" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Lx5FxVdhqiOAjh-NJIth-14" value="Yes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="318.44" y="545" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Lx5FxVdhqiOAjh-NJIth-15" target="Rv_8nFQpvILyS6SBei3u-15">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="180" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="186" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Lx5FxVdhqiOAjh-NJIth-15">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="180" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="120" y="505" />
+              <mxPoint x="120" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Lx5FxVdhqiOAjh-NJIth-15" value="Still within &lt;br&gt;interval timer?" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="130" y="460" width="113" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="Lx5FxVdhqiOAjh-NJIth-20" value="No" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="120" y="460" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Lx5FxVdhqiOAjh-NJIth-24" value="No" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="273.69" y="470" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ObX8C9m_a-rFlt3IML2l-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ObX8C9m_a-rFlt3IML2l-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="770" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ObX8C9m_a-rFlt3IML2l-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="ObX8C9m_a-rFlt3IML2l-1" target="ObX8C9m_a-rFlt3IML2l-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ObX8C9m_a-rFlt3IML2l-1" value="Turn off hardware?" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="304.44" y="970" width="110" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ObX8C9m_a-rFlt3IML2l-4" value="No" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="278.44" y="990" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ObX8C9m_a-rFlt3IML2l-5" value="End" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="303.19" y="1110" width="112.5" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ObX8C9m_a-rFlt3IML2l-7" value="Yes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="319.44" y="1065" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Rv_8nFQpvILyS6SBei3u-1" target="Rv_8nFQpvILyS6SBei3u-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-1" value="Turn on Overspeeding Device 1" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="-240" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Rv_8nFQpvILyS6SBei3u-2" target="Rv_8nFQpvILyS6SBei3u-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-2" value="Turn on Overspeeding Device 2" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="409.44" y="-240" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Rv_8nFQpvILyS6SBei3u-3" target="Rv_8nFQpvILyS6SBei3u-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-3" value="Device 1 connects to WiFi network and subscribes to &quot;OVS&quot; MQTT topic" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="-160" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Rv_8nFQpvILyS6SBei3u-4" target="Rv_8nFQpvILyS6SBei3u-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-4" value="Device 1 connects to Device 2 via ESP-NOW Protocol (Receiver)" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="-80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Rv_8nFQpvILyS6SBei3u-5" target="Lx5FxVdhqiOAjh-NJIth-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-5" value="Device 1 PIR sensor awaits movement" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Rv_8nFQpvILyS6SBei3u-6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="90" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="469" y="90" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-6" value="Device 2 connects to Device 1 via ESP-NOW (Sender)" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="409.44" y="-160" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Rv_8nFQpvILyS6SBei3u-15" target="Lx5FxVdhqiOAjh-NJIth-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-15" value="Device 2 PIR sensor awaits movement" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="299.94" y="360" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Rv_8nFQpvILyS6SBei3u-24" target="Rv_8nFQpvILyS6SBei3u-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Rv_8nFQpvILyS6SBei3u-24">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-24" value="Is vehicle overspeeding?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="304.44" y="719" width="110" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Rv_8nFQpvILyS6SBei3u-25" target="ObX8C9m_a-rFlt3IML2l-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-25" value="Device 1 sends a signal: &quot;1 OVS&quot; to the Recording System to save the video via MQTT" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="289.69" y="860" width="139.25" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-42" value="Yes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="190" y="440" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-44" value="Yes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="358.44" y="810" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Rv_8nFQpvILyS6SBei3u-46" value="No" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="273.69" y="740" width="40" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

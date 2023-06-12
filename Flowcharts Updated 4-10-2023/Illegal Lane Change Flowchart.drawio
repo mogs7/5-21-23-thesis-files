@@ -1,0 +1,128 @@
+<mxfile host="app.diagrams.net" modified="2023-04-30T04:23:00.747Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" etag="9gaAXGfP-G09O87mHWHZ" version="21.1.5" type="device">
+  <diagram name="Page-1" id="jE9_Ny7zacltV2LYeuiw">
+    <mxGraphModel dx="1050" dy="545" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="_d4l0Of2Ugj4WHg13rGI-1" target="_d4l0Of2Ugj4WHg13rGI-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="_d4l0Of2Ugj4WHg13rGI-1" target="_d4l0Of2Ugj4WHg13rGI-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-1" value="Start" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="10" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="_d4l0Of2Ugj4WHg13rGI-2" target="_d4l0Of2Ugj4WHg13rGI-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-2" value="PIR sensor 1 awaits movement" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="_d4l0Of2Ugj4WHg13rGI-3" target="_d4l0Of2Ugj4WHg13rGI-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-3" value="PIR sensor 2 awaits movement" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="_d4l0Of2Ugj4WHg13rGI-4" target="_d4l0Of2Ugj4WHg13rGI-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="_d4l0Of2Ugj4WHg13rGI-4" target="_d4l0Of2Ugj4WHg13rGI-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="190" y="160" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="180" y="290" />
+              <mxPoint x="180" y="170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-4" value="Is movement detected?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="240" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="_d4l0Of2Ugj4WHg13rGI-7" target="_d4l0Of2Ugj4WHg13rGI-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-7" value="Camera clips footage and uploads to database" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="520" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="_d4l0Of2Ugj4WHg13rGI-8" target="_d4l0Of2Ugj4WHg13rGI-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" edge="1" parent="1" source="_d4l0Of2Ugj4WHg13rGI-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="180" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" edge="1" parent="1" source="_d4l0Of2Ugj4WHg13rGI-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-8" value="Was movement detected at the same time?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="337.5" y="360" width="125" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-10" value="End" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="740" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="_d4l0Of2Ugj4WHg13rGI-11">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="_d4l0Of2Ugj4WHg13rGI-11" target="_d4l0Of2Ugj4WHg13rGI-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="610" y="170" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="620" y="290" />
+              <mxPoint x="620" y="170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-11" value="Is movement detected?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="240" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="_d4l0Of2Ugj4WHg13rGI-12" target="_d4l0Of2Ugj4WHg13rGI-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="_d4l0Of2Ugj4WHg13rGI-12">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="90" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="660" y="660" />
+              <mxPoint x="660" y="90" />
+              <mxPoint x="490" y="90" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-12" value="Is program terminated?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="345" y="610" width="110" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-24" value="Yes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="380" y="265" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-28" value="No" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="300" y="390" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-29" value="No" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="455" y="390" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-30" value="No" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="190" y="265" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-31" value="No" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="560" y="265" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-33" value="Yes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="360" y="480" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-34" value="Yes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="350" y="700" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_d4l0Of2Ugj4WHg13rGI-36" value="No" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="450" y="630" width="40" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
