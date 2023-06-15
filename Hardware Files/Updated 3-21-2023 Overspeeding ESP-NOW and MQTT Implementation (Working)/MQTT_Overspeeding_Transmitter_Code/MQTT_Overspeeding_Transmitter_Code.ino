@@ -4,8 +4,8 @@
 #define LED 2
 
 unsigned long startTime = 0, timer = 0;
-const float timeOut = 5000.0; // Time out timer in ms
-const float DISTANCE = 13.88, MAX_SPEED = 2.78; //Distance in m and speed in m/s
+const float timeOut = 900; // Time out timer in ms
+const float DISTANCE = 5, MAX_SPEED = 5.56; //Distance in m and speed in m/s
 const int pir1 = 23;
 float serialSpeed;
 bool sensor1Triggered = false, sensor2Triggered = false;
